@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ site.name }} | {{ site.title }}</title>
+    <meta name="description" content="{{ site.bio | strip_html | strip_newlines | truncate: 160 }}">
+    <link href="{{ "/assets/styles.css" | relative_url }}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="stars"></div>
+        <div class="stars2"></div>
+        <div class="stars3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <span class="logo-bracket">&lt;</span>
+                <span class="logo-text">LL</span>
+                <span class="logo-bracket">/&gt;</span>
+            </a>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#about" class="nav-link">À propos</a>
+                <a href="#skills" class="nav-link">Compétences</a>
+                <a href="#projects" class="nav-link">Projets</a>
+                <a href="#education" class="nav-link">Formation</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <p class="hero-greeting">
+                    <span class="wave">👋</span> Salut, je suis
+                </p>
+                <h1 class="hero-name">
+                    <span class="name-first">Luka</span>
+                    <span class="name-last">LAUNAY</span>
+                </h1>
+                <div class="hero-title-wrapper">
+                    <span class="hero-title-static">Je suis </span>
+                    <span class="hero-title-dynamic" id="typed-text"></span>
+                    <span class="cursor">|</span>
+                </div>
+                <p class="hero-description">
+                    Étudiant en BUT Informatique à l'IUT de Nantes, passionné par les systèmes d'exploitation, 
+                    le reverse engineering et l'intelligence artificielle.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">
+                        <span>Voir mes projets</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="presentation" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <span>Me contacter</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="code-window">
+                    <div class="code-header">
+                        <div class="code-dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <span class="code-title">luka.py</span>
+                    </div>
+                    <pre class="code-content"><code><span class="keyword">class</span> <span class="class-name">Luka</span>:
+    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="param">self</span>):
+        <span class="param">self</span>.name = <span class="string">"Luka LAUNAY"</span>
+        <span class="param">self</span>.location = <span class="string">"Bouaye, France"</span>
+        <span class="param">self</span>.education = <span class="string">"BUT Informatique"</span>
+        <span class="param">self</span>.interests = [
+            <span class="string">"Systèmes d'exploitation"</span>,
+            <span class="string">"Reverse Engineering"</span>,
+            <span class="string">"Machine Learning"</span>
+        ]
+    
+    <span class="keyword">def</span> <span class="function">get_skills</span>(<span class="param">self</span>):
+        <span class="keyword">return</span> [<span class="string">"Python"</span>, <span class="string">"Go"</span>, <span class="string">"C"</span>]</code></pre>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-number">01.</span>
+                À propos de moi
+            </h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        {{ site.bio }}
+                    </p>
+                    <div class="about-highlights">
+                        <div class="highlight-card">
+                            <div class="highlight-icon">🎓</div>
+                            <div class="highlight-text">
+                                <span class="highlight-label">Formation</span>
+                                <span class="highlight-value">BUT Informatique</span>
+                            </div>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="highlight-icon">📍</div>
+                            <div class="highlight-text">
+                                <span class="highlight-label">Localisation</span>
+                                <span class="highlight-value">{{ site.location }}</span>
+                            </div>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="highlight-icon">🔬</div>
+                            <div class="highlight-text">
+                                <span class="highlight-label">Spécialité</span>
+                                <span class="highlight-value">Systèmes & Sécurité</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="terminal">
+                        <div class="terminal-header">
+                            <div class="terminal-dots">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </div>
+                            <span class="terminal-title">bash ~ luka</span>
+                        </div>
+                        <div class="terminal-body">
+                            <div class="terminal-line">
+                                <span class="terminal-prompt">$</span>
+                                <span class="terminal-command">whoami</span>
+                            </div>
+                            <div class="terminal-output">Luka LAUNAY - Étudiant en Informatique</div>
+                            <div class="terminal-line">
+                                <span class="terminal-prompt">$</span>
+                                <span class="terminal-command">cat interests.txt</span>
+                            </div>
+                            <div class="terminal-output">
+                                → Systèmes d'exploitation<br>
+                                → Reverse engineering<br>
+                                → Contournement anti-triche<br>
+                                → Intelligence artificielle
+                            </div>
+                            <div class="terminal-line">
+                                <span class="terminal-prompt">$</span>
+                                <span class="terminal-command typing">_</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section skills" id="skills">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-number">02.</span>
+                Compétences
+            </h2>
+            <div class="skills-grid">
+                <!-- Programming Languages -->
+                <div class="skill-category">
+                    <h3 class="category-title">
+                        <span class="category-icon">💻</span>
+                        Langages de programmation
+                    </h3>
+                    <div class="skill-bars">
+                        {% for skill in site.skills.programming %}
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">{{ skill.icon }} {{ skill.name }}</span>
+                                <span class="skill-level">{{ skill.level }}</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: {{ skill.percentage }}%"></div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <!-- Languages -->
+                <div class="skill-category">
+                    <h3 class="category-title">
+                        <span class="category-icon">🌍</span>
+                        Langues
+                    </h3>
+                    <div class="skill-bars">
+                        {% for lang in site.skills.languages %}
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">{{ lang.name }} <span class="skill-badge">{{ lang.level }}</span></span>
+                                <span class="skill-level">{{ lang.description }}</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: {{ lang.percentage }}%"></div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <!-- Other Skills -->
+                <div class="skill-category full-width">
+                    <h3 class="category-title">
+                        <span class="category-icon">🔧</span>
+                        Autres compétences
+                    </h3>
+                    <div class="skill-tags">
+                        {% for skill in site.skills.other %}
+                        <span class="skill-tag">{{ skill }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section projects" id="projects">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-number">03.</span>
+                Projets
+            </h2>
+            
+            <!-- Featured Project -->
+            {% for project in site.projects_custom %}
+            {% if project.highlight %}
+            <div class="featured-project">
+                <div class="featured-label">🌟 Projet à la une</div>
+                <div class="featured-content">
+                    <div class="featured-info">
+                        <h3 class="featured-title">{{ project.title }}</h3>
+                        <span class="featured-date">{{ project.date }}</span>
+                        <p class="featured-description">{{ project.description }}</p>
+                        <ul class="featured-details">
+                            {% for detail in project.details %}
+                            <li>{{ detail }}</li>
+                            {% endfor %}
+                        </ul>
+                        <div class="featured-tags">
+                            {% for tag in project.tags %}
+                            <span class="tag">{{ tag }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="featured-visual">
+                        <div class="rocket-league-card">
+                            <div class="rl-header">
+                                <span class="rl-logo">🚗⚽</span>
+                                <span class="rl-title">RLbot AI</span>
+                            </div>
+                            <div class="rl-stats">
+                                <div class="stat">
+                                    <span class="stat-value">95%+</span>
+                                    <span class="stat-label">Joueurs battus</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-value">1 mois</span>
+                                    <span class="stat-label">Entraînement</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-value">∞</span>
+                                    <span class="stat-label">Heures de jeu</span>
+                                </div>
+                            </div>
+                            <div class="rl-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 95%"></div>
+                                </div>
+                                <span class="progress-label">Niveau IA</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+
+            <!-- GitHub Projects -->
+            <h3 class="subsection-title">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                Projets GitHub
+            </h3>
+            <div class="github-projects">
+                {% assign sorted_repos = site.github.public_repositories | where:'fork', false | sort: 'pushed_at' | reverse %}
+                {% for repo in sorted_repos limit:6 %}
+                <div class="project-card">
+                    <div class="project-card-header">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                        <a href="{{ repo.html_url }}" class="project-name" target="_blank" rel="noopener">{{ repo.name }}</a>
+                    </div>
+                    <p class="project-description">{{ repo.description | default: "Aucune description disponible" }}</p>
+                    <div class="project-meta">
+                        {% if repo.language %}
+                        <span class="project-language">
+                            <span class="lang-dot" style="background-color: {{ site.data.colors[repo.language].color | default: '#6366f1' }}"></span>
+                            {{ repo.language }}
+                        </span>
+                        {% endif %}
+                        {% if repo.stargazers_count > 0 %}
+                        <span class="project-stars">⭐ {{ repo.stargazers_count }}</span>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section education" id="education">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-number">04.</span>
+                Formation
+            </h2>
+            <div class="timeline">
+                {% for edu in site.education %}
+                <div class="timeline-item {% if edu.current %}current{% endif %}">
+                    <div class="timeline-marker">
+                        {% if edu.current %}
+                        <span class="pulse"></span>
+                        {% endif %}
+                    </div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">{{ edu.period }}</span>
+                        <h3 class="timeline-title">{{ edu.title }}</h3>
+                        <p class="timeline-institution">{{ edu.institution }}</p>
+                        {% if edu.details %}
+                        <p class="timeline-details">{{ edu.details }}</p>
+                        {% endif %}
+                        {% if edu.current %}
+                        <span class="current-badge">En cours</span>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <!-- Experience -->
+            <h3 class="subsection-title" style="margin-top: 3rem;">
+                💼 Expérience
+            </h3>
+            {% for exp in site.experience %}
+            <div class="experience-card">
+                <div class="exp-header">
+                    <h4 class="exp-title">{{ exp.title }}</h4>
+                    <span class="exp-period">{{ exp.period }}</span>
+                </div>
+                <p class="exp-company">{{ exp.company }}</p>
+                <p class="exp-description">{{ exp.description }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-number">05.</span>
+                Contact
+            </h2>
+            <div class="contact-content">
+                <p class="contact-intro">
+                    Vous avez un projet intéressant ou souhaitez discuter ? 
+                    N'hésitez pas à me contacter !
+                </p>
+                <div class="contact-cards">
+                    <a href="mailto:{{ site.email }}" class="contact-card">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-info">
+                            <span class="contact-label">Email</span>
+                            <span class="contact-value">{{ site.email }}</span>
+                        </div>
+                    </a>
+                    <a href="tel:{{ site.phone }}" class="contact-card">
+                        <div class="contact-icon">📱</div>
+                        <div class="contact-info">
+                            <span class="contact-label">Téléphone</span>
+                            <span class="contact-value">{{ site.phone }}</span>
+                        </div>
+                    </a>
+                    <a href="https://maps.google.com/?q={{ site.location | url_encode }}" target="_blank" rel="noopener" class="contact-card">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-info">
+                            <span class="contact-label">Localisation</span>
+                            <span class="contact-value">{{ site.location }}</span>
+                        </div>
+                    </a>
+                    {% if site.github.owner %}
+                    <a href="https://github.com/{{ site.github.owner.login }}" class="contact-card" target="_blank" rel="noopener">
+                        <div class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        </div>
+                        <div class="contact-info">
+                            <span class="contact-label">GitHub</span>
+                            <span class="contact-value">@{{ site.github.owner.login }}</span>
+                        </div>
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">
+                    <span class="footer-code">&lt;/&gt;</span> Conçu et développé par <strong>Luka LAUNAY</strong>
+                </p>
+                <p class="footer-year">© {{ 'now' | date: "%Y" }}</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for interactions -->
+    <script>
+        // Typing effect
+        const texts = ["développeur passionné", "explorateur de systèmes", "créateur d'IA", "étudiant curieux"];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typedText = document.getElementById('typed-text');
+
+        function type() {
+            const currentText = texts[textIndex];
+            
+            if (isDeleting) {
+                typedText.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typedText.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 50 : 100;
+
+            if (!isDeleting && charIndex === currentText.length) {
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+                typeSpeed = 500;
+            }
+
+            setTimeout(type, typeSpeed);
+        }
+
+        type();
+
+        // Mobile menu toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    navMenu.classList.remove('active');
+                    navToggle.classList.remove('active');
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section, .timeline-item, .skill-item, .project-card, .contact-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
