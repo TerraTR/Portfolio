@@ -31,7 +31,7 @@
                 <a href="#education" class="nav-link">Formation</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
-            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+            <button class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -62,7 +62,7 @@
                 <div class="hero-buttons">
                     <a href="#projects" class="btn btn-primary">
                         <span>Voir mes projets</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="presentation" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </a>
                     <a href="#contact" class="btn btn-secondary">
                         <span>Me contacter</span>
@@ -319,7 +319,7 @@
                     <div class="project-meta">
                         {% if repo.language %}
                         <span class="project-language">
-                            <span class="lang-dot" style="background-color: {{ site.data.colors[repo.language].color }}"></span>
+                            <span class="lang-dot" style="background-color: {{ site.data.colors[repo.language].color | default: '#6366f1' }}"></span>
                             {{ repo.language }}
                         </span>
                         {% endif %}
@@ -400,20 +400,20 @@
                             <span class="contact-value">{{ site.email }}</span>
                         </div>
                     </a>
-                    <div class="contact-card">
+                    <a href="tel:{{ site.phone }}" class="contact-card">
                         <div class="contact-icon">📱</div>
                         <div class="contact-info">
                             <span class="contact-label">Téléphone</span>
                             <span class="contact-value">{{ site.phone }}</span>
                         </div>
-                    </div>
-                    <div class="contact-card">
+                    </a>
+                    <a href="https://maps.google.com/?q={{ site.location | url_encode }}" target="_blank" rel="noopener" class="contact-card">
                         <div class="contact-icon">📍</div>
                         <div class="contact-info">
                             <span class="contact-label">Localisation</span>
                             <span class="contact-value">{{ site.location }}</span>
                         </div>
-                    </div>
+                    </a>
                     {% if site.github.owner %}
                     <a href="https://github.com/{{ site.github.owner.login }}" class="contact-card" target="_blank" rel="noopener">
                         <div class="contact-icon">

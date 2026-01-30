@@ -329,8 +329,9 @@ img {
         display: block;
         background: var(--gradient-primary);
         -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
         background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
     }
     
     .name-last {
@@ -1392,3 +1393,24 @@ img {
 .contact-card:nth-child(2) { transition-delay: 0.15s; }
 .contact-card:nth-child(3) { transition-delay: 0.2s; }
 .contact-card:nth-child(4) { transition-delay: 0.25s; }
+
+// ===== Reduced Motion Support =====
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .stars, .stars2, .stars3 {
+        animation: none;
+    }
+    
+    .code-window {
+        transform: none;
+    }
+    
+    .scroll-indicator {
+        animation: none;
+    }
+}
