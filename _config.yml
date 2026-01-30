@@ -1,5 +1,5 @@
-layout: sidebar
-style: light
+layout: custom
+style: dark
 
 plugins:
   - jekyll-octicons
@@ -11,48 +11,100 @@ permalink: /:year/:month/:day/:title/
 defaults:
   -
     scope:
-      path: "" # an empty string here means all files in the project
+      path: ""
       type: "posts"
     values:
       layout: "post"
 
-projects:
+# Personal Information
+name: Luka LAUNAY
+title: Étudiant en Informatique
+location: Bouaye (44), France
+phone: "06 66 73 38 33"
+email: luka.launay@etu.univ-nantes.fr
+
+bio: >
+  Passionné par l'informatique depuis toujours, je suis actuellement en formation de BUT à l'IUT de Nantes. 
+  Plus jeune, j'aimais bidouiller des composants électroniques, ce qui m'a poussé à découvrir le monde de la programmation.
+  Aujourd'hui, je m'intéresse particulièrement au fonctionnement des systèmes d'exploitation et à la manière dont ils 
+  peuvent être exploités pour contourner des systèmes de protection.
+
+# Education
+education:
+  - title: "BUT Informatique"
+    institution: "IUT de Nantes (44)"
+    period: "2025 - 2028"
+    current: true
+  - title: "BAC Général"
+    institution: "Lycée Alcide d'Orbigny, Bouaye (44)"
+    period: "2022 - 2025"
+    details: "Option NSI/MATHS/PHYSIQUE → NSI PHYSIQUE"
+  - title: "Collège"
+    institution: "Collège privé St Hermeland, Bouaye"
+    period: "2018 - 2022"
+  - title: "École élémentaire"
+    institution: "École privée Notre Dame de la Trinité, Bouaye"
+    period: "2010 - 2018"
+
+# Skills
+skills:
+  languages:
+    - name: "Anglais"
+      level: "C1"
+      description: "Capable de comprendre et de s'exprimer sur n'importe quel sujet"
+      percentage: 90
+    - name: "Espagnol"
+      level: "A2"
+      description: "Intermédiaire"
+      percentage: 40
+  programming:
+    - name: "Python"
+      level: "Expérimenté"
+      percentage: 85
+      icon: "🐍"
+    - name: "Go"
+      level: "Débutant"
+      percentage: 30
+      icon: "🔷"
+    - name: "C"
+      level: "Débutant"
+      percentage: 30
+      icon: "⚙️"
+  other:
+    - "Connaissance élémentaire des composants internes de Windows"
+    - "Reverse engineering & contournement de sécurité"
+    - "Reinforcement Learning"
+
+# Projects
+projects_custom:
+  - title: "RLbot"
+    date: "Décembre 2025"
+    description: "Entraînement et déploiement d'une intelligence artificielle capable de battre plus de 95% des joueurs sur le jeu vidéo Rocket League."
+    details:
+      - "Entraînement réalisé grâce au reinforcement learning sur 1 mois"
+      - "Suivi constant nécessaire pour guider le bot (adaptation des fonctions de récompenses)"
+      - "Déploiement dans un jeu en ligne nécessitant des méthodes de contournement des mesures de sécurité"
+    tags:
+      - "Python"
+      - "Reinforcement Learning"
+      - "Machine Learning"
+      - "Reverse Engineering"
+    highlight: true
+
+# Experience
+experience:
+  - title: "Stage de 3ème"
+    company: "Ludwig Informatique"
+    period: "2022 (1 semaine)"
+    description: "Observation du fonctionnement d'une entreprise offrant des services informatiques variés (réparation d'ordinateurs, résolution de problèmes logiciels, remplacement de composants, interventions à domicile)"
+
+# GitHub projects settings
+github_projects:
   sort_by: pushed
-  # sort_by options:
-  #   - pushed
-  #   - stars
-  limit: 9
+  limit: 6
   exclude:
     archived: false
     forks: true
-    projects:
-    # - repo-name
 
-# social_media:
-  # behance: your_username
-  # dribbble: your_username
-  # facebook: your_username
-  # hackerrank: your_username
-  # instagram: your_username
-  # keybase: your_username
-  # linkedin: your_username
-  # mastodon: your_username
-  # medium: your_username
-  # stackoverflow: your_user_id
-  # telegram: your_username
-  # twitter: your_username
-  # unsplash: your_username
-  # vk: your_username
-  # website: http://your_website_url
-  # youtube: your_username
-
-topics:
-  - name: CSS
-    web_url: https://github.com/topics/css
-    image_url: https://raw.githubusercontent.com/github/explore/6c6508f34230f0ac0d49e847a326429eefbfc030/topics/css/css.png
-
-  - name: Web design
-
-  - name: Sass
-    web_url: https://github.com/topics/sass
-    image_url: https://raw.githubusercontent.com/github/explore/6c6508f34230f0ac0d49e847a326429eefbfc030/topics/sass/sass.png
+social_media:
+  # Add your social media links here if needed
